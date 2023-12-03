@@ -1,0 +1,80 @@
+h2 {
+    font-size: 4em;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.filter-container {
+    width: 100%;
+    display: flex;
+    padding-left: 48px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.filter-container a {
+    text-decoration: none;
+}
+
+#btn-create {
+    background-color: rgb(255, 166, 50);
+    font-size: 20px;
+    color: white;
+    height: 60px;
+    width: 128px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border-width: 0;
+}
+
+#btn-create:hover {
+    background-color: rgb(130, 236, 130);
+}
+
+.book-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-list-item {
+    width: 45%;
+    display: flex;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes list-item-on-hover {
+    from {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+    to {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+.book-list-item:hover {
+    animation: list-item-on-hover 0.5s linear forwards;
+}
+
+li.btn-add {
+    height: 255px;
+    width: 45%;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li.btn-add:hover {
+    animation: list-item-on-hover 0.5s linear forwards;
+}
+
+li.btn-add a {
+    text-decoration: none;
+    color: gray;
+    font-size: 45px;
+}

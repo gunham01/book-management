@@ -1,0 +1,20 @@
+doctype html 
+html 
+    head
+        title Cập nhật sách
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        include ../includes/header.pug
+        .container
+            form(action=`/books/${id}` method="PUT" enctype="multipart/form-data")
+                h1 CẬP NHẬT SÁCH
+                fieldset
+                    input(type="text" placeholder="Name" name="title" value=book.title) 
+                    input(type="text" placeholder="Author" name="author" value = book.author)
+                    input(type="text" placeholder="Publisher" name="publisher" value = book.publisher)
+                    input(type="number" placeholder="Publish year" name="publishedYear" value = book.publishedYear)
+                    input(type="text" placeholder="Description" name="description" value = book.description)
+                    input(type="file" placeholder="Cover image" name="cover" value = book.cover)
+                    button(type="submit") Lưu
+                    
+        include ../includes/footer.pug

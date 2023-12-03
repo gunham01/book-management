@@ -1,0 +1,23 @@
+doctype html 
+html 
+    head
+        title Tạo sách
+        link(rel="stylesheet", href="/css/common.css")
+        link(rel="stylesheet", href="/css/book/create-book.css")
+        link(rel="stylesheet", href="/css/header.css")
+    body
+        include ../includes/header.pug
+        .background
+            .container
+                h1 Tạo sách
+                form(action="/books" method="POST" enctype="multipart/form-data")
+                    fieldset
+                        input(type="text" placeholder="Name" name="title") 
+                        input(type="text" placeholder="Author" name="author")
+                        input(type="text" placeholder="Publisher" name="publisher")
+                        input(type="number" placeholder="Publish year" name="publishedYear")
+                        input(type="text" placeholder="Description" name="description")
+                        input(type="file" placeholder="Cover image" name="cover" title="")
+                        button(type="submit" class="btn-primary btn-submit") Tạo
+                    
+        include ../includes/footer.pug

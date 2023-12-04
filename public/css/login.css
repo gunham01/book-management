@@ -1,0 +1,24 @@
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset {
+    margin: 32px 52px;
+}
+
+input {
+    margin-bottom: 24px !important;
+}
+
+input[type='submit'] {
+    margin-top: 48px !important;
+    justify-self: flex-end;
+}
+
+form {
+    height: 500px;
+    width: 420px;
+}

@@ -1,0 +1,17 @@
+doctype html 
+html 
+    head
+        title Login
+        link(rel="stylesheet", href="/css/common.css")
+        link(rel="stylesheet", href="/css/header.css")
+        link(rel="stylesheet", href="/css/login.css")
+    body
+        .background
+            .container
+                form(action="/login" method="POST" autocomplete="off")
+                    fieldset
+                        input(type="text" name="username" placeholder="Tên đăng nhập")
+                        input(type="password" name="password" placeholder="Mật khẩu")
+                        input(type="submit" value="Đăng nhập" class="btn-primary btn-submit")
+                        if error
+                            p.error=error

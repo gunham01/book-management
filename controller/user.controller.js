@@ -1,40 +1,41 @@
 const express = require('express');
 const UserModel = require('../model/user.model');
-
-
+const hash = require('../utils/hasher');
 const router = express.Router();
 
-router.get('/', async (_, response) => {
-    response.render('users', { users: await UserModel.find({}) });
+router.get('/',  async (request, response) => {
+    response.render('user/users', {
+        users: await UserModel.find({}),
+        username: request.cookies.username,
+    });
 });
 
-router.get('/create', (_, response) => {
-    response.render('create-user');
+router.get('/create', (request, response) => {
+    response.render('user/create-user', { username: request.cookies.username });
 });
 
 router.post('/', async (request, response) => {
     const user = request.body;
-    await UserModel.create(user);
-
-    response.render('/users', { users: await UserModel.find({}) });
+    await UserModel.create({ ...user, password: hash(user.password) });
+    response.redirect('/users');
 });
 
-router.get('/:id', async (request, response) => {
-    response.render('update-user', {
+router.get('/:id/update', async (request, response) => {
+    response.render('user/update-user', {
         user: await UserModel.findById(request.params.id),
+        username: request.cookies.username,
     });
 });
 
 router.put('/', async (request, response) => {
     const user = request.body;
     await UserModel.updateOne(user);
-
-    response.render('users', { users: await UserModel.find({}) });
+    response.redirect('/users');
 });
 
-router.delete('/:id', async (request, response) => {
+router.get('/:id/delete', async (request, response) => {
     await UserModel.deleteOne({ _id: request.params.id });
-    response.render('users', { users: await UserModel.find({}) });
+    response.redirect('/users');
 });
 
 module.exports = router;

@@ -2,19 +2,21 @@ doctype html
 html 
     head
         title Cập nhật sách
-        link(rel="stylesheet", href="/css/style.css")
+        link(rel="stylesheet", href="/css/common.css")
+        link(rel="stylesheet", href="/css/form.css")
+        link(rel="stylesheet", href="/css/header.css")
     body
         include ../includes/header.pug
-        .container
-            form(action=`/books/${id}` method="PUT" enctype="multipart/form-data")
-                h1 CẬP NHẬT SÁCH
-                fieldset
-                    input(type="text" placeholder="Name" name="title" value=book.title) 
-                    input(type="text" placeholder="Author" name="author" value = book.author)
-                    input(type="text" placeholder="Publisher" name="publisher" value = book.publisher)
-                    input(type="number" placeholder="Publish year" name="publishedYear" value = book.publishedYear)
-                    input(type="text" placeholder="Description" name="description" value = book.description)
-                    input(type="file" placeholder="Cover image" name="cover" value = book.cover)
-                    button(type="submit") Lưu
-                    
+        .background
+            .container
+                h1.page-title Cập nhật sách
+                form(action=`/books/${id}` method="PUT" enctype="multipart/form-data")
+                    fieldset
+                        input(type="text" placeholder="Tiêu đề" name="title" value=book.title) 
+                        input(type="text" placeholder="Tác giả" name="author" value = book.author)
+                        input(type="text" placeholder="Nhà xuất bản" name="publisher" value = book.publisher)
+                        input(type="number" placeholder="Năm xuất bản" name="publishedYear" value = book.publishedYear)
+                        input(type="text" placeholder="Mô tả" name="description" value = book.description)
+                        input(type="file" placeholder="Ảnh bìa" name="cover" value = book.cover)
+                        button(type="submit" class="btn-primary btn-submit") Lưu
         include ../includes/footer.pug

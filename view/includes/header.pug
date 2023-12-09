@@ -1,8 +1,14 @@
-header.container 
+header
+    img(src="https://icon-library.com/images/photo-library-icon/photo-library-icon-3.jpg" alt="Logo" width="92px" height="92px")
     ul.menu 
-        li 
-            a(href="/") Trang chủ
         li
             a(href="/books") Sách
         li
             a(href="/users") Người dùng
+    span
+        span.welcome
+            if username
+                span Xin chào #{username}
+                a(href="/logout") Đăng xuất
+            else
+                a(href="/login") Đăng nhập

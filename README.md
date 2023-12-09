@@ -42,6 +42,7 @@ npm start
 ```
 
 ## HTTP
+
 Có 4 phương thức HTTP hay dúng
 
 -   Xem `GET`
@@ -49,12 +50,22 @@ Có 4 phương thức HTTP hay dúng
 -   Sửa `PUT`
 -   Xoá `DELETE`
 
-
 ## Cách tạo mật khẩu (secret key)
+
 Chạy lần lượt cách lệnh sau
+
 ```bash
 node
 const crypto = require('crypto');
-crypto.randomBytes(64).toString('hex')
+crypto.randomBytes(32).toString('hex')
 ```
+
 Dòng cuối cùng mà terminal in ra sẽ là secret key
+
+## Phân quyền
+
+| Tên quyền  | Quyền                     |
+| ---------- | ------------------------- |
+| Khách      | Xem sách                  |
+| Người dùng | Quản lý sách              |
+| Admin      | Quản lý sách + người dũng |

@@ -1,16 +1,15 @@
 doctype html 
 html 
     head
-        title Book List 
+        title Quản lý sách
         link(rel="stylesheet", href="/css/common.css")
-        link(rel="stylesheet", href="/css/book/books.css")
+        link(rel="stylesheet", href="/css/books.css")
         link(rel="stylesheet", href="/css/header.css")
     body
         include ../includes/header.pug
         .background
             .container
-                h2 Danh sách sách
-                //- .filter-container
+                h2.page-title Quản lý sách
                 if books.length > 0
                 ul.book-list
                     each book, idx in books
@@ -21,6 +20,9 @@ html
                                 h3.book-title=book.title
                                 p=book.description
                                 a(href=`books/${book.id}` title="Xem thêm")
+                            .book-action
+                                a(href=`books/${book.id}/update` title="Sửa") Sửa
+                                a(href=`books/${book.id}/delete` title="Xóa") Xóa
                     li.btn-add
                         a(href="books/create") + Thêm
         include ../includes/footer.pug

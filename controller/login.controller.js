@@ -1,18 +1,40 @@
 const express = require('express');
-const BookModel = require('../model/book.model');
+const UserModel = require('../model/user.model');
+const hash = require('../utils/hasher');
+const jwt = require('jsonwebtoken');
+const config = require('../config');
 
 const router = express.Router();
 
-router.get('/', (_, response) => {
-    response.render('login');
+router.get('/', (request, response) => {
+    if (request.cookies.token) {
+        response.redirect('/books');
+    } else {
+        response.render('login');
+    }
 });
 
 router.post('/', async (request, response) => {
     const { username, password } = request.body;
-    if (username === 'admin' && password === 'admin') {
-        response.render('book/books', { books: await BookModel.find({}) });
+    const user = await UserModel.findOne({ username });
+    if (!user) {
+        response.render('login', {
+            error: 'Tài khoản hoặc mật khẩu không đúng',
+        });
     } else {
-        response.render('login', { error: 'Tài khoản hoặc mật khẩu không đúng' });
+        if (hash(password) === user.password) {
+            const token = jwt.sign(
+                { username: user.username, role: user.role },
+                config.secretkey
+            );
+            response.cookie('token', token);
+            response.cookie('username', user.username);
+            response.redirect('/books');
+        } else {
+            response.render('login', {
+                error: 'Tài khoản hoặc mật khẩu không đúng',
+            });
+        }
     }
 });
 

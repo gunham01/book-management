@@ -1,0 +1,22 @@
+doctype html 
+html 
+    head
+        title Cập nhật người dùng
+        link(rel="stylesheet", href="/css/common.css")
+        link(rel="stylesheet", href="/css/form.css")
+        link(rel="stylesheet", href="/css/header.css")
+    body
+        include ../includes/header.pug
+        .background
+            .container
+                h1.page-title Cập nhật người dùng
+                form(action=`/users/${user.id}` method="PUT" enctype="multipart/form-data")
+                    fieldset
+                        input(type="text" placeholder="Tên đăng nhập" name="username" value=user.username) 
+                        input(type="text" placeholder="Họ và tên" name="fullname" value=user.fullname)
+                        input(type="text" placeholder="Email" name="email" value=user.email)
+                        select(name="role" value=user.role)
+                            option(value="admin") Admin
+                            option(value="user") User
+                        button(type="submit" class="btn-primary btn-submit") Lưu
+        include ../includes/footer.pug

@@ -1,3 +1,7 @@
+* {
+    --header-color: #02354e;
+}
+
 html {
     height: 100%;
 }
@@ -10,6 +14,10 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
+}
+
+.page-title {
+    color: white;
 }
 
 .container {
@@ -26,7 +34,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(8px);
+    /* filter: blur(4px); */
 }
 
 .background {
@@ -50,58 +58,50 @@ body {
 footer {
     z-index: 1;
     padding-left: 20px;
-    background-color: white;
+    background-color: var(--header-color);
     width: 100%;
     height: 60px;
-    color: pink;
-}
-
-input[type='text'],
-input[type='password'] {
-    font-size: 20px;
-    width: 100%;
-    height: 52px;
-    border: none;
-    padding-left: 16px;
-    border-radius: 16px;
-    margin-bottom: 16px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-input[type='text']::placeholder,
-input[type='password']::placeholder {
-    font-size: 20px;
-    color: #ccc;
-}
-
-input[type='text']:focus,
-input[type='password']:focus {
-    outline: none;
-}
-
-form {
-    border: none;
-    display: flex;
-    justify-content: center;
-    height: 300px;
-    width: 360px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-fieldset {
-    margin: 32px 16px;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    border: none;
-    width: 100%;
+    color: white;
 }
 
 .error {
     color: red;
     font-size: 12px;
     margin-bottom: 16px;
+}
+
+/* Not found section */
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.not-found h1 {
+    flex: 1;
+    font-size: 200px;
+    color: white;
+    margin-bottom: 0;
+     /* Tạo viền cho chữ */
+    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black,
+        1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+}
+
+.not-found h2 {
+    margin-bottom: 20px;
+    font-size: 64px;
+    color: white;
+    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black,
+        1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+}
+
+.not-found p {
+    flex: 3;
+    margin-top: 0;
+    font-size: 32px;
+    color: white;
+    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black,
+        1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }

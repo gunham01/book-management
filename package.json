@@ -1,5 +1,5 @@
 {
-  "name": "book-management",
+  "name": "library",
   "version": "1.0.0",
   "description": "Đây là dự án quản lý sách",
   "main": "index.js",

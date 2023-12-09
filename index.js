@@ -17,7 +17,7 @@ const authorize = require('./middleware/authorize.middleware');
             fullname: 'Admin',
             username: 'admin',
             password: hash('admin'),
-            role: 'ADMIN',
+            role: 'admin',
             email: 'admin@vnua.edu.vn',
         });
         console.log('Tạo admin thành công');

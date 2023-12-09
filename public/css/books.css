@@ -59,6 +59,12 @@ h2 {
     animation: list-item-on-hover 0.5s linear forwards;
 }
 
+.book-cover img {
+    height: 255px;
+    width: 255px;
+    margin: 10px;
+}
+
 .book-action {
     align-self: flex-end;
     flex: 1;

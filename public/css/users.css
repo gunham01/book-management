@@ -4,6 +4,8 @@ h2 {
 
 .btn-create {
     margin-left: 20px;
+    cursor: pointer;
+    background-color: var(--btn-submit-bg-color)
 }
 
 .user-list {
@@ -12,7 +14,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-content: space-evenly;
-    align-items: center;
+    align-items: center;    
 }
 
 .user-list li {
@@ -20,7 +22,6 @@ h2 {
     width: 100%;
     height: 124px;
     margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.6);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,18 +37,20 @@ h2 {
     flex: 1;
 }
 
-.user-info a {
+a {
     text-decoration: none;
-    font-size: 28px;
+    color: var(--text-color);
 }
 
-.user-info a:visited {
-    color: blue;
+.user-info div {
+    text-decoration: none;
+    font-size: 28px;
+    color: var(--text-color);
 }
 
 .user-info span {
     font-size: 16px;
-    color: #555
+    color: #aaa
 }
 
 .user-action {
@@ -61,7 +64,7 @@ h2 {
 
 .user-action a {
     text-decoration: none;
-    color: blue;
+    color: var(--text-color);
     margin-left: 20px;
     font-size: 24px;
 }

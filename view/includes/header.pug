@@ -1,12 +1,15 @@
 header
-    img(src="https://icon-library.com/images/photo-library-icon/photo-library-icon-3.jpg" alt="Logo" width="92px" height="92px")
-    ul.menu 
-        li
-            a(href="/books") Sách
-        li
-            a(href="/users") Người dùng
+    a(href="/")
+        img(src="https://icon-library.com/images/photo-library-icon/photo-library-icon-3.jpg" alt="Logo" width="92px" height="92px")
+    ul.menu
+        if role == 'admin' 
+            a(href="/books")
+                li Sách
+            a(href="/users")
+                    li Người dùng
     span
         span.welcome
+        
             if username
                 span Xin chào #{username}
                 a(href="/logout") Đăng xuất

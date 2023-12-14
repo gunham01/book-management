@@ -49,13 +49,15 @@ app.use(
     authorize('admin'),
     require('./controller/user.controller')
 );
+
+// redirect: Điều hướng
 app.get('/', (_, response) => response.redirect('/login'));
 app.get('/logout', (_, response) => {
     ['token', 'username'].forEach((key) => response.clearCookie(key));
     response.redirect('/login');
 });
-// app.use('/logout', require('./controller/logout'));
+app.get('/register', (_, response) => response.render('register'));
 
-app.listen(3000, () => {
-    console.log('App is listening on port 3000');
+app.listen(4000, () => {
+    console.log('App is listening on port 4000');
 });

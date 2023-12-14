@@ -34,7 +34,6 @@ h2 {
 }
 
 .book-list {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -42,16 +41,18 @@ h2 {
 .book-list-item {
     width: 45%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 10px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgb(123 61 61 / 0.8);
 }
 
 @keyframes list-item-on-hover {
     from {
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgb(123 61 61 / 0.8);
     }
     to {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgb(123 61 61 / 1);
     }
 }
 
@@ -59,10 +60,23 @@ h2 {
     animation: list-item-on-hover 0.5s linear forwards;
 }
 
+.book-cover {
+    display: flex;
+    justify-content: center;
+}
+
 .book-cover img {
-    height: 255px;
-    width: 255px;
+    height: 244px;
+    width: 244px;
     margin: 10px;
+}
+
+.book-info {
+    padding: 0 12px;
+}
+
+.book-info > * {
+    margin: 10px 0;
 }
 
 .book-action {
@@ -78,30 +92,32 @@ h2 {
 .book-action a {
     text-decoration: none;
     font-size: 20px;
+    color: #ddd;
+    margin-right: 24px;
 }
 
 .book-action a:visited {
     text-decoration: none;
     font-size: 20px;
-    color: blue;
+    color: #ddd;
 }
 
-li.btn-add {
-    height: 255px;
+.btn-add {
+    height: 390px;
     width: 45%;
     margin: 10px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgb(123 61 61 / 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-li.btn-add:hover {
+.btn-add:hover {
     animation: list-item-on-hover 0.5s linear forwards;
 }
 
-li.btn-add a {
+.btn-add a {
     text-decoration: none;
-    color: gray;
+    color: #ddd;
     font-size: 45px;
 }

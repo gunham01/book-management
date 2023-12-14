@@ -20,3 +20,5 @@ router.post('/', async (request, response) => {
     await UserModel.create({ ...userInfo, password: hash(password) });
     response.render('login');
 });
+
+module.exports = router;

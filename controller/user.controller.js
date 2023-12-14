@@ -3,15 +3,24 @@ const UserModel = require('../model/user.model');
 const hash = require('../utils/hasher');
 const router = express.Router();
 
-router.get('/',  async (request, response) => {
+const roles = {
+    ADMIN: 'admin',
+    USER: 'user',
+};
+
+router.get('/', async (request, response) => {
     response.render('user/users', {
         users: await UserModel.find({}),
         username: request.cookies.username,
+        role: request.cookies.role,
     });
 });
 
 router.get('/create', (request, response) => {
-    response.render('user/create-user', { username: request.cookies.username });
+    response.render('user/create-user', {
+        username: request.cookies.username,
+        role: request.cookies.role,
+    });
 });
 
 router.post('/', async (request, response) => {
@@ -24,11 +33,20 @@ router.get('/:id/update', async (request, response) => {
     response.render('user/update-user', {
         user: await UserModel.findById(request.params.id),
         username: request.cookies.username,
+        role: request.cookies.role,
     });
 });
 
-router.put('/', async (request, response) => {
+router.post('/:id', async (request, response) => {
     const user = request.body;
+    if (!user.password) {
+        const savedUser = await UserModel.findById(request.params.id);
+        user.password = savedUser.password;
+    }
+    if (!user.role) {
+        user.role = roles.USER;
+    }
+
     await UserModel.updateOne(user);
     response.redirect('/users');
 });

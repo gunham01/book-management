@@ -29,6 +29,7 @@ router.post('/', async (request, response) => {
             );
             response.cookie('token', token);
             response.cookie('username', user.username);
+            response.cookie('role', user.role);
             response.redirect('/books');
         } else {
             response.render('login', {

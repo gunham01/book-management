@@ -1,24 +1,22 @@
-doctype html 
-html
-    head
-        title Quản lý người dùng
-        link(rel="stylesheet", href="/css/common.css")
-        link(rel="stylesheet", href="/css/users.css")
-        link(rel="stylesheet", href="/css/header.css")
-    body
-        include ../includes/header.pug
-        .background
-            .container
-                h2.page-title Danh sách tài khoản
-                a(href="/users/create")
-                    button(type="button" class="btn-primary btn-create") Tạo tài khoản
-                if users.length > 0
-                    ul.user-list
-                        each user, idx in users
-                            li.user-list-item
-                                .user-info
-                                    a(href=`/users/${user.id}/update`) #{user.fullname}
-                                    span #{user.email}
-                                .user-action
-                                    a(href=`/users/${user.id}/delete`) Xóa
-    include ../includes/footer.pug
+extends ../default.pug
+
+block title 
+    title Quản lý người dùng
+
+append links
+    link(rel="stylesheet", href="/css/users.css")
+
+block content
+    .page-title
+        h1 Quản lý người dùng
+    a(href="/users/create")
+        button(type="button" class="btn-primary btn-create") Tạo người dùng
+    if users.length > 0
+        ul.user-list
+            each user, idx in users
+                li.user-list-item.list-item
+                    a(href=`/users/${user.id}/update`).user-info
+                        div #{user.fullname}
+                        span #{user.email}
+                    .user-action
+                        a(href=`/users/${user.id}/delete`) Xóa

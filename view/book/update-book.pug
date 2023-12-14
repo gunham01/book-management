@@ -1,22 +1,31 @@
-doctype html 
-html 
-    head
-        title Cập nhật sách
-        link(rel="stylesheet", href="/css/common.css")
-        link(rel="stylesheet", href="/css/form.css")
-        link(rel="stylesheet", href="/css/header.css")
-    body
-        include ../includes/header.pug
-        .background
-            .container
-                h1.page-title Cập nhật sách
-                form(action=`/books/${id}` method="PUT" enctype="multipart/form-data")
-                    fieldset
-                        input(type="text" placeholder="Tiêu đề" name="title" value=book.title) 
-                        input(type="text" placeholder="Tác giả" name="author" value = book.author)
-                        input(type="text" placeholder="Nhà xuất bản" name="publisher" value = book.publisher)
-                        input(type="number" placeholder="Năm xuất bản" name="publishedYear" value = book.publishedYear)
-                        input(type="text" placeholder="Mô tả" name="description" value = book.description)
-                        input(type="file" placeholder="Ảnh bìa" name="cover" value = book.cover)
-                        button(type="submit" class="btn-primary btn-submit") Lưu
-        include ../includes/footer.pug
+extends ../default.pug
+
+block title 
+    title Cập nhật sách
+
+append links
+    link(rel="stylesheet", href="/css/form.css")
+
+block content
+    .page-title
+        h1 Cập nhật sách
+    form(action="/books" method="POST" enctype="multipart/form-data")
+        fieldset
+            .input-container
+                label(for="title") Tiêu đề
+                input(type="text" name="title" value=book.title)
+            .input-container
+                label(for="author") Tác giả
+                input(type="text" name="author" value=book.author)
+            .input-container
+                label(for="publisher") Nhà xuất bản
+                input(type="text" name="publisher" value=book.publisher)
+            .input-container
+                label(for="publishedYear") Năm xuất bản
+                input(type="number" min="0" max="2024" name="publishedYear" value=book.publishedYear)
+            .input-container
+                label(for="description") Mô tả
+                input(type="text" name="description" value=book.description)
+            .file-uploader-container
+                input(type="file" name="cover" title="" value=book.cover)
+            button(type="submit" class="btn-primary btn-submit") Cập nhật

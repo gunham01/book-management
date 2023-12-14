@@ -10,7 +10,7 @@ function verifyToken(request, response, next) {
     } catch (error) {
         console.error(error);
         response.render('login', {
-            message: 'Vì lí do bảo mật, vui lòng đăng nhập lại',
+            error: 'Vì lí do bảo mật, vui lòng đăng nhập lại',
         });
     }
 }

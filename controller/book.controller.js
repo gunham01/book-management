@@ -27,15 +27,20 @@ const upload = multer({
 
 // Trang quản lý sách
 router.get('/', async (request, response) => {
+    const books = await BookModel.find({});
     response.render('book/books', {
-        books: await BookModel.find({}),
+        books: books,
         username: request.cookies.username,
+        role: request.cookies.role,
     });
 });
 
 // Trang tạo sách
 router.get('/create', verifyToken, (request, response) => {
-    response.render('book/create-book', { user: request.cookies.username });
+    response.render('book/create-book', {
+        username: request.cookies.username,
+        role: request.cookies.role,
+    });
 });
 
 // Khi bấm tạo sách
@@ -57,20 +62,24 @@ router.get('/:id/update', async (request, response) => {
     response.render('book/update-book', {
         book: await BookModel.findById(request.params.id),
         username: request.cookies.username,
+        role: request.cookies.role,
     });
 });
 
 // Khi bấm cập nhật sấch
-router.put(
-    '/',
+router.post(
+    '/:id',
     verifyToken,
     upload.single('cover'),
     async (request, response) => {
-        request.body.cover = request.file.filename;
+        if (request.file) {
+            request.body.cover = request.file.filename;
+        }
+
         const book = request.body;
         await BookModel.updateOne(book);
 
-        response.redirect('/book/books');
+        response.redirect('/books');
     }
 );
 

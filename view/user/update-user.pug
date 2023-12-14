@@ -1,22 +1,30 @@
-doctype html 
-html 
-    head
-        title Cập nhật người dùng
-        link(rel="stylesheet", href="/css/common.css")
-        link(rel="stylesheet", href="/css/form.css")
-        link(rel="stylesheet", href="/css/header.css")
-    body
-        include ../includes/header.pug
-        .background
-            .container
-                h1.page-title Cập nhật người dùng
-                form(action=`/users/${user.id}` method="PUT" enctype="multipart/form-data")
-                    fieldset
-                        input(type="text" placeholder="Tên đăng nhập" name="username" value=user.username) 
-                        input(type="text" placeholder="Họ và tên" name="fullname" value=user.fullname)
-                        input(type="text" placeholder="Email" name="email" value=user.email)
-                        select(name="role" value=user.role)
-                            option(value="admin") Admin
-                            option(value="user") User
-                        button(type="submit" class="btn-primary btn-submit") Lưu
-        include ../includes/footer.pug
+extends ../default.pug
+
+block title 
+    title Cập nhật người dùng
+
+append links
+    link(rel="stylesheet", href="/css/form.css")
+
+block content
+    h1.page-title Cập nhật người dùng
+    form(action=`/users/${user.id}` method="POST")
+        fieldset
+            .input-container
+                label(for="username") Tên đăng nhập
+                input(type="text" name="username" value=user.username)
+            .input-container
+                label(for="fullname") Họ và tên
+                input(type="text" name="fullname" value=user.fullname)
+            .input-container
+                label(for="email") Email
+                input(type="text" name="email" value=user.email)
+            .input-container
+                label(for="password") Mật khẩu
+                input(type="password" name="password")
+            .input-container 
+                label(for="role") Vai trò
+                select(name="role" value=user.role)
+                    option(value="admin") Admin
+                    option(value="user") User
+            button(type="submit" class="btn-primary btn-submit") Cập nhật

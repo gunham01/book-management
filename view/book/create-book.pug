@@ -1,22 +1,31 @@
-doctype html 
-html 
-    head
-        title Tạo sách
-        link(rel="stylesheet", href="/css/common.css")
-        link(rel="stylesheet", href="/css/form.css")
-        link(rel="stylesheet", href="/css/header.css")
-    body
-        include ../includes/header.pug
-        .background
-            .container
-                h1.page-title Tạo sách
-                form(action="/books" method="POST" enctype="multipart/form-data")
-                    fieldset
-                        input(type="text" placeholder="Tiêu đề" name="title") 
-                        input(type="text" placeholder="Tác giả" name="author")
-                        input(type="text" placeholder="Nhà xuất bản" name="publisher")
-                        input(type="number" placeholder="Năm xuất bản" name="publishedYear")
-                        input(type="text" placeholder="Mô tả" name="description")
-                        input(type="file" placeholder="Ảnh bìa" name="cover" title="")
-                        button(type="submit" class="btn-primary btn-submit") Tạo
-        include ../includes/footer.pug
+extends ../default.pug
+
+block title 
+    title Tạo sách
+
+append links
+    link(rel="stylesheet", href="/css/form.css")
+
+block content
+    .page-title
+        h1 Tạo sách
+    form(action="/books" method="POST" enctype="multipart/form-data")
+        fieldset
+            .input-container
+                label(for="title") Tiêu đề
+                input(type="text" name="title")
+            .input-container
+                label(for="author") Tác giả
+                input(type="text" name="author")
+            .input-container
+                label(for="publisher") Nhà xuất bản
+                input(type="text" name="publisher")
+            .input-container
+                label(for="publishedYear") Năm xuất bản
+                input(type="number" min="0" max="2024" name="publishedYear")
+            .input-container
+                label(for="description") Mô tả
+                input(type="text" name="description")
+            .file-uploader-container
+                input(type="file" name="cover" title="")
+            button(type="submit" class="btn-primary btn-submit") Tạo

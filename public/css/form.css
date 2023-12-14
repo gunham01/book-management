@@ -29,25 +29,56 @@ fieldset {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(41, 2, 2, 0.9);
+    padding: 12px;
+}
+
+label {
+    color: #ddd;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 50%;
+    height: 80px;
+}
+
+
+.file-uploader-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    height: 80px;
+}
+
+input, select {
+    color: #ddd;
+    width: 100%;
 }
 
 input[type='text'],
 input[type='number'],
 input[type='email'],
-input[type='password'], select {
+input[type='password'],
+select {
     font-size: 20px;
     padding-left: 16px;
-    margin-bottom: 24px;
-    border: 0;
-    border-bottom: 1px solid #ccc;
-    background-color: transparent;
+    border-radius: 12px;
+    border: 0px;
+    border-bottom: 1px solid #250c0c;
+    background-color: #111;
     height: 48px;
-    width: 50%;
 }
 
-input::placeholder, select::placeholder {
+input::placeholder,
+select::placeholder {
     font-size: 16px;
+    color: #ddd;
 }
 
 input[type='text']:focus,
@@ -59,7 +90,9 @@ input[type='file']::-webkit-file-upload-button {
     width: 100px;
     height: 36px;
     border-radius: 20px;
-    border: 1px solid #ddd;
+    border: none;
+    background-color: var(--btn-submit-bg-color);
+    color: #ddd;
     margin-right: 12px;
 }
 
@@ -69,4 +102,15 @@ fieldset button {
     padding: 4px 20px;
     width: 72px;
     height: 32px;
+}
+
+.note span {
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.note a, .note a:visited  {
+    color: var(--url-color);
+    font-size: 16px;
+    text-decoration: none;
 }

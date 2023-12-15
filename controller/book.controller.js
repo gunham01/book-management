@@ -72,12 +72,13 @@ router.post(
     verifyToken,
     upload.single('cover'),
     async (request, response) => {
+        const bookId = request.params.id;
         if (request.file) {
             request.body.cover = request.file.filename;
         }
 
         const book = request.body;
-        await BookModel.updateOne(book);
+        await BookModel.findByIdAndUpdate(bookId, book);
 
         response.redirect('/books');
     }

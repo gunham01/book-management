@@ -22,16 +22,21 @@ block content
         if books.length > 0
             each book, idx in books
                 li.book-list-item
-                    a(href=`books/${book.id}/update`).book-cover
-                        img(src=`/img/cover/${book.cover}`)
+                    if isAdmin
+                        a(href=`books/${book.id}/update`).book-cover
+                            img(src=`/img/cover/${book.cover}`)
+                    else
+                        .book-cover
+                            img(src=`/img/cover/${book.cover}`)
                     .book-info
                         h3.book-title=book.title
-                        p=book.description
+                        p=book.author
                         a(href=`books/${book.id}` title="Xem thêm")
                     if isAdmin
                         .book-action
                             a(href=`books/${book.id}/update` title="Sửa") Sửa
                             a(href=`books/${book.id}/delete` title="Xóa") Xóa
-        a(href="books/create").btn-add.list-item
-            span + Thêm
+        if isAdmin
+            a(href="books/create").btn-add.list-item
+                span + Thêm
 

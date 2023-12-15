@@ -10,7 +10,7 @@ block content
     .page-title
         h1 Quản lý người dùng
         
-    a(href="/books/create")
+    a(href="/users/create")
         button(type="button" class="btn-primary btn-create") Tạo mới
         
     if users.length > 0
@@ -21,4 +21,5 @@ block content
                         div #{user.fullname}
                         span #{user.email}
                     .user-action
+                        a(href=`/users/${user.id}/update`) Sửa
                         a(href=`/users/${user.id}/delete`) Xóa

@@ -4,8 +4,6 @@ const cookieParser = require('cookie-parser');
 const UserModel = require('./model/user.model');
 require('./database/mongoose.database');
 const hash = require('./utils/hasher');
-const verifyToken = require('./middleware/jwt.middleware');
-const authorize = require('./middleware/authorize.middleware');
 
 // Tạo sẵn 1 tài khoản admin
 (async () => {
@@ -43,18 +41,14 @@ app.use('/books', require('./controller/book.controller'));
 
 app.use('/login', require('./controller/login.controller'));
 
-app.use(
-    '/users',
-    verifyToken,
-    authorize('admin'),
-    require('./controller/user.controller')
-);
+app.use('/users', require('./controller/user.controller'));
 
 // redirect: Điều hướng
 app.get('/', (_, response) => response.redirect('/login'));
 app.get('/logout', (_, response) => {
-    ['token', 'username'].forEach((key) => response.clearCookie(key));
-    response.redirect('/login');
+    response.clearCookie('token');
+    response.clearCookie('username');
+    response.redirect('/books/create');
 });
 app.get('/register', (_, response) => response.render('register'));
 

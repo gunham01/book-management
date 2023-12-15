@@ -200,23 +200,10 @@ footer {
         1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
 
-@keyframes list-item-on-hover {
-    from {
-        background-color: var(--item-bg-color);
-    }
-    to {
-        background-color: var(--item-bg-color-no-alpha);
-    }
-}
-
 .list-item {
     background-color: var(--item-bg-color);
 }
 
-.list-item:hover {
-    animation: list-item-on-hover 0.5s linear forwards;
-}
-
 button {
-    cursor: pointer;
+    cursor: pointer; /* Hình con trỏ */
 }

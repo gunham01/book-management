@@ -13,14 +13,16 @@ append links
 block content
     - isAdmin = role == 'admin'
     if isAdmin
-        .page-title
+        .page-title 
             h1 Quản lý sách
-    
+    if isAdmin
+        a(href="/books/create")
+            button(type="button" class="btn-primary btn-create") Tạo mới
     if books.length > 0
         ul.book-list
             each book, idx in books
                 li.book-list-item
-                    .book-cover
+                    a(href=`books/${book.id}/update`).book-cover
                         img(src=`/img/cover/${book.cover}`)
                     .book-info
                         h3.book-title=book.title
@@ -30,9 +32,6 @@ block content
                         .book-action
                             a(href=`books/${book.id}/update` title="Sửa") Sửa
                             a(href=`books/${book.id}/delete` title="Xóa") Xóa
-            if isAdmin
-                li.btn-add
-                    a(href="books/create") + Thêm
     else
         div.btn-add
             a(href="books/create") + Thêm

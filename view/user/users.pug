@@ -9,8 +9,10 @@ append links
 block content
     .page-title
         h1 Quản lý người dùng
-    a(href="/users/create")
-        button(type="button" class="btn-primary btn-create") Tạo người dùng
+        
+    a(href="/books/create")
+        button(type="button" class="btn-primary btn-create") Tạo mới
+        
     if users.length > 0
         ul.user-list
             each user, idx in users

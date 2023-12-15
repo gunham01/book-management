@@ -1,6 +1,6 @@
 * {
     --header-color: #2b1603;
-    --btn-submit-bg-color: #831212;
+    ---bg-color: #831212;
     --item-bg-color: rgb(123 61 61 / 0.8);
     --item-bg-color-no-alpha: rgb(123 61 61);
     --text-color: #ddd;
@@ -131,18 +131,15 @@ header img {
 }
 
 .btn-primary {
-    background-color: rgb(113, 228, 113);
+    background-color: var(---bg-color);
     color: white;
     font-size: 16px;
     border-radius: 16px;
     padding: 16px;
     border: none;
-}
-
-.btn-submit {
-    background-color: var(--btn-submit-bg-color);
-    width: 120px;
-    height: 48px;
+    width: 132px;
+    height: 54px;
+    cursor: pointer;
 }
 
 footer {

@@ -13,6 +13,7 @@ function verifyToken(request, response, next) {
             error: 'Vì lí do bảo mật, vui lòng đăng nhập lại',
         });
     }
+    
 }
 
 module.exports = verifyToken;

@@ -91,7 +91,7 @@ input[type='file']::-webkit-file-upload-button {
     height: 36px;
     border-radius: 20px;
     border: none;
-    background-color: var(--btn-submit-bg-color);
+    background-color: var(---bg-color);
     color: #ddd;
     margin-right: 12px;
 }

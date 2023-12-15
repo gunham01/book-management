@@ -31,7 +31,7 @@ router.get('/', async (request, response) => {
     response.render('book/books', {
         books: books,
         username: request.cookies.username,
-        role: request.cookies.role,
+        role: request.cookies.role, //Phân quyền
     });
 });
 

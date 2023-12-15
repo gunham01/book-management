@@ -7,19 +7,19 @@ block title
     else
         title Sách
 
-append links
+block append links
     link(rel="stylesheet", href="/css/books.css")
 
 block content
     - isAdmin = role == 'admin'
-    if isAdmin
+    if isAdmin 
         .page-title 
             h1 Quản lý sách
     if isAdmin
         a(href="/books/create")
             button(type="button" class="btn-primary btn-create") Tạo mới
-    if books.length > 0
-        ul.book-list
+    ul.book-list
+        if books.length > 0
             each book, idx in books
                 li.book-list-item
                     a(href=`books/${book.id}/update`).book-cover
@@ -32,7 +32,6 @@ block content
                         .book-action
                             a(href=`books/${book.id}/update` title="Sửa") Sửa
                             a(href=`books/${book.id}/delete` title="Xóa") Xóa
-    else
-        div.btn-add
-            a(href="books/create") + Thêm
+        a(href="books/create").btn-add.list-item
+            span + Thêm
 

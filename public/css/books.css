@@ -20,6 +20,18 @@ h2 {
     margin-left: 20px;
 }
 
+.btn-add {
+    margin: 20px;
+    width: 368px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    text-decoration: none;
+    font-size: 40px;
+    color: var(--text-color);
+}
+
 .book-list {
     display: flex;
     flex-wrap: wrap;

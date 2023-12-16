@@ -33,6 +33,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 24px;
+    height: 80px;
     background-color: var(--header-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

@@ -4,32 +4,15 @@ h2 {
     margin-left: 50px;
 }
 
-.filter-container {
-    width: 100%;
+.button-container {
     display: flex;
-    padding-left: 48px;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.filter-container a {
-    text-decoration: none;
+    justify-content: flex-end;
+    padding: 0 20px;
+    margin: 10px 0;
 }
 
 .btn-create {
     margin-left: 20px;
-}
-
-.btn-add {
-    margin: 20px;
-    width: 368px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    text-decoration: none;
-    font-size: 40px;
-    color: var(--text-color);
 }
 
 .book-list {

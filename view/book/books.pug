@@ -16,8 +16,9 @@ block content
         .page-title 
             h1 Quản lý sách
     if isAdmin
-        a(href="/books/create")
-            button(type="button" class="btn-primary btn-create") Tạo mới
+        .button-container
+            a(href="/books/create")
+                button(type="button" class="btn-primary btn-create") Tạo mới
     ul.book-list
         if books.length > 0
             each book, idx in books
@@ -36,7 +37,3 @@ block content
                         .book-action
                             a(href=`books/${book.id}/update` title="Sửa") Sửa
                             a(href=`books/${book.id}/delete` title="Xóa") Xóa
-        if isAdmin
-            a(href="books/create").btn-add.list-item
-                span + Thêm
-

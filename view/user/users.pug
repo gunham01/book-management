@@ -10,8 +10,9 @@ block content
     .page-title
         h1 Quản lý người dùng
         
-    a(href="/users/create")
-        button(type="button" class="btn-primary btn-create") Tạo mới
+    .button-container
+        a(href="/users/create")
+            button(type="button" class="btn-primary btn-create") Tạo mới
         
     if users.length > 0
         ul.user-list

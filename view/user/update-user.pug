@@ -25,6 +25,6 @@ block content
             .input-container 
                 label(for="role") Vai trò
                 select(name="role" value=user.role)
-                    option(value="admin") Admin
-                    option(value="user") User
+                    option(value="admin" selected=user.role=='admin') Admin
+                    option(value="user" selected=user.role=='user') User
             button(type="submit" class="btn-primary ") Cập nhật

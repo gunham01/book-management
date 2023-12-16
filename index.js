@@ -43,7 +43,7 @@ app.get('/', (_, response) => response.redirect('/login'));
 app.get('/logout', (_, response) => {
     response.clearCookie('token');
     response.clearCookie('username');
-    response.redirect('/books/create');
+    response.redirect('/login');
 });
 app.get('/register', (_, response) => response.render('register'));
 

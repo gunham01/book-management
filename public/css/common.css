@@ -51,7 +51,6 @@ header img {
 }
 
 .menu {
-    /* width: 100%; */
     height: 100%;
     display: flex;
     justify-content: flex-end;
@@ -174,17 +173,12 @@ footer {
     font-size: 200px;
     color: white;
     margin-bottom: 0;
-    /* Tạo viền cho chữ */
-    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black,
-        1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
 
 .not-found h2 {
     margin-bottom: 20px;
     font-size: 64px;
     color: white;
-    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black,
-        1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
 
 .not-found p {
@@ -195,7 +189,7 @@ footer {
 }
 
 /* Custom */
-.bordered-text {
+.bordered-text { /* Tạo viền cho chữ */
     text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black,
         1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }

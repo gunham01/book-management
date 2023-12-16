@@ -29,7 +29,7 @@ npm install -D nodemon
 
 ```json
 "scripts": {
-   "start": "nodemon index.js", // Thêm dòng này
+   "start": "nodemon index.js", 
  },
 ```
 

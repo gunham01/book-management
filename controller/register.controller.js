@@ -1,5 +1,4 @@
 const express = require('express');
-const BookModel = require('../model/book.model');
 const UserModel = require('../model/user.model');
 const crypto = require('crypto');
 const config = require('../config');

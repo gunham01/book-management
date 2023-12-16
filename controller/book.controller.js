@@ -1,11 +1,3 @@
-/**
- * Đây là file tập hợp các API liên quan tới sách
- * - API xem sách
- * - API thêm sách
- * - API sửa sách
- * - API xoá sách
- */
-
 const express = require('express');
 const BookModel = require('../model/book.model');
 const multer = require('multer');
@@ -25,17 +17,17 @@ const upload = multer({
     }),
 });
 
-// Trang quản lý sách
+
 router.get('/', async (request, response) => {
     const books = await BookModel.find({});
     response.render('book/books', {
         books: books,
         username: request.cookies.username,
-        role: request.cookies.role, //Phân quyền
+        role: request.cookies.role, 
     });
 });
 
-// Trang tạo sách
+
 router.get('/create', verifyToken, (request, response) => {
     response.render('book/create-book', {
         username: request.cookies.username,
@@ -43,7 +35,7 @@ router.get('/create', verifyToken, (request, response) => {
     });
 });
 
-// Khi bấm tạo sách
+
 router.post(
     '/',
     verifyToken,
@@ -57,7 +49,7 @@ router.post(
     }
 );
 
-// Trang cập nhật sách
+
 router.get('/:id/update', async (request, response) => {
     response.render('book/update-book', {
         book: await BookModel.findById(request.params.id),
@@ -66,7 +58,7 @@ router.get('/:id/update', async (request, response) => {
     });
 });
 
-// Khi bấm cập nhật sấch
+
 router.post(
     '/:id',
     verifyToken,
@@ -84,7 +76,7 @@ router.post(
     }
 );
 
-// Khi bấm xoá sách
+
 router.get('/:id/delete', verifyToken, async (request, response) => {
     await BookModel.findByIdAndDelete(request.params.id);
     response.redirect('/books');

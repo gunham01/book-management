@@ -1,7 +1,3 @@
-/**
- * Đây giống như là định nghĩa 1 bảng trong Cơ sở dữ liệu
- */
-
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({

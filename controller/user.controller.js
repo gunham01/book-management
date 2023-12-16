@@ -10,7 +10,6 @@ const roles = {
     USER: 'user',
 };
 
-// Trang quản lý người dùng
 router.get('/', verifyToken, authorize('admin'), async (request, response) => {
     response.render('user/users', {
         users: await UserModel.find({}),
@@ -19,7 +18,6 @@ router.get('/', verifyToken, authorize('admin'), async (request, response) => {
     });
 });
 
-// Trang tạo người dùng
 router.get('/create', verifyToken, authorize('admin'), (request, response) => {
     response.render('user/create-user', {
         username: request.cookies.username,
@@ -27,7 +25,6 @@ router.get('/create', verifyToken, authorize('admin'), (request, response) => {
     });
 });
 
-// Khi bấm tạo người dùng
 router.post('/', verifyToken, authorize('admin'), async (request, response) => {
     const user = request.body;
     user.password = hash(user.password);
@@ -35,14 +32,13 @@ router.post('/', verifyToken, authorize('admin'), async (request, response) => {
     response.redirect('/users');
 });
 
-// Trang đăng ký
+
 router.post('/register', async (request, response) => {
     const user = request.body;
     await UserModel.create({ ...user, password: hash(user.password) });
     response.redirect('/users');
 });
 
-// Trang cập nhật người dùng
 router.get(
     '/:id/update',
     verifyToken,
@@ -56,7 +52,6 @@ router.get(
     }
 );
 
-// Khi bấm cập nhật người dùng
 router.post(
     '/:id',
     verifyToken,
@@ -65,7 +60,7 @@ router.post(
         const userId = request.params.id;
         const user = request.body;
         if (!user.password) {
-            // nếu user.password khác null, undefined, 0, false, '' thì mới thực hiện
+            
             const savedUser = await UserModel.findById(request.params.id);
             user.password = savedUser.password;
         }
@@ -80,7 +75,6 @@ router.post(
     }
 );
 
-// Xoá người dùng
 router.get(
     '/:id/delete',
     verifyToken,
